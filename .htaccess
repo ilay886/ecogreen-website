@@ -12,3 +12,5 @@ Redirect 301 /hello-world/ https://ecogreenextrior.com/blog/
 Redirect 301 /category/uncategorized/ https://ecogreenextrior.com/blog/
 Redirect 301 /author/avi/ https://ecogreenextrior.com/about-us/
 Redirect 301 /author/dev/ https://ecogreenextrior.com/about-us/
+Redirect 301 /philadelphia https://ecogreenextrior.com/philadelphia-pa/
+Redirect 301 /philadelphia/ https://ecogreenextrior.com/philadelphia-pa/
