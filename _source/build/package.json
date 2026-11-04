@@ -1,0 +1,1 @@
+{ "name": "ecogreen-site-build", "private": true, "scripts": { "build": "node export.js" }, "dependencies": { "playwright": "1.48.2", "@fontsource-variable/inter": "5.1.0" } }

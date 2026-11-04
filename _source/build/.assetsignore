@@ -1,0 +1,11 @@
+wrangler.jsonc
+.assetsignore
+.git
+.github
+.gitattributes
+.nojekyll
+.htaccess
+README.md
+.wrangler
+_source
+_source/*

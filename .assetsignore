@@ -7,3 +7,5 @@ wrangler.jsonc
 .htaccess
 README.md
 .wrangler
+_source
+_source/*
