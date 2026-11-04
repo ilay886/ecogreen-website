@@ -110,7 +110,7 @@ label{font-size:14px;font-weight:600;color:var(--ink);display:grid;gap:5px}
 input,select,textarea{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
 :focus-visible{outline:3px solid var(--lime);outline-offset:2px}
 a.num{display:inline-block;text-decoration:none}
-footer a{color:#fff;text-decoration:none}footer a:hover{text-decoration:underline}
+footer a{color:#fff;text-decoration:none}footer .mapico{width:15px;height:15px;stroke:#8BC349;fill:none;stroke-width:2;vertical-align:-2px;margin-left:5px}footer b a:hover{color:#c7e59f}footer a:hover{text-decoration:underline}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}@media (max-width:520px){.two{grid-template-columns:minmax(0,1fr)}}
 .consent{font-size:13px;color:var(--muted);margin:0;line-height:1.45}.consent a{color:var(--green)}
 .ok.err{background:#FEE2E2}
