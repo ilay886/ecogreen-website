@@ -1,0 +1,9 @@
+wrangler.jsonc
+.assetsignore
+.git
+.github
+.gitattributes
+.nojekyll
+.htaccess
+README.md
+.wrangler
