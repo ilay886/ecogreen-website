@@ -1,6 +1,6 @@
 # EcoGreen Roofing And Exteriors – website
 
-Static website (533 pages). No WordPress, no database, nothing to update or patch.
+Static website (535 pages). No WordPress, no database, nothing to update or patch.
 
 ## What's in this repository
 - `index.html` and one folder per page (for example `ardmore-pa/index.html`)

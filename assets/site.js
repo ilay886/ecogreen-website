@@ -46,3 +46,8 @@ panel.addEventListener('click',function(e){
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){open(false);btn.focus();}});
 apply();
 })();
+
+(function(){
+document.addEventListener('click',function(e){document.querySelectorAll('details.locdd[open]').forEach(function(d){if(!d.contains(e.target)||e.target.closest('.locname'))d.open=false;});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.locdd[open]').forEach(function(d){d.open=false;var s=d.querySelector('summary');if(s)s.focus();});});
+})();

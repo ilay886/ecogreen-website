@@ -1,3 +1,4 @@
+@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;src:url(/assets/fonts/inter.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 /* Layout: matches the live ecogreenextrior.com — white header with logo, full-bleed photo hero with green-gradient town name, glass stat cards, photo + text split, mint estimate band. Single light look, like the original. */
 :root{
@@ -31,7 +32,10 @@ nav.top a.btn,nav.top a.btn:hover{color:#fff}
 .hero{position:relative;color:#fff;text-align:center;background:#1c2420 center/cover no-repeat;background-image:linear-gradient(rgba(10,14,12,.62),rgba(10,14,12,.72)),url(/assets/hero.webp)}
 .hero .wrap{padding-block:72px 56px;display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:20px}
 .hero .wrap>*{max-width:100%;min-width:0}
-.crumbs{font-size:14px;color:#d1d5dc}.crumbs a{color:#fff}
+.crumbs{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px 0;max-width:100%;font-size:13px;font-weight:600;letter-spacing:.02em;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 16px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.crumbs a{color:rgba(255,255,255,.78);text-decoration:none;font-weight:500;transition:color .15s}
+.crumbs a:hover,.crumbs a:focus-visible{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.crumbs .sep{color:#8BC349;margin:0 8px;font-weight:700}
 .hero h1{color:#fff;font-size:clamp(30px,5.4vw,58px);font-weight:700;max-width:min(18ch,100%);overflow-wrap:anywhere}
 .hero .sub{color:#f3f4f6;max-width:46ch;font-size:18px;margin:0}
 .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -167,6 +171,21 @@ footer a{color:#fff;text-decoration:none}footer .mapico{width:15px;height:15px;s
 .rpost .rd{color:var(--green);font-weight:600;font-size:14px}
 @media (max-width:420px){.rpost img{width:92px;height:72px}.rpost b{font-size:15px}}
 @media (prefers-reduced-motion:reduce){.rpost{transition:none}.rpost:hover{transform:none}}
+.locdd{position:relative;cursor:pointer;color:#fff}
+.locdd summary{list-style:none;cursor:pointer;display:block}
+.locdd summary::-webkit-details-marker{display:none}
+.locdd:hover,.locdd[open]{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45)}
+.locdd-cue{font-style:normal;font-size:11px;margin-left:3px;opacity:.85}
+.locdd[open]{z-index:30}
+.locmenu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:min(340px,calc(100vw - 32px));background:#fff;color:var(--text);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.28);padding:10px;text-align:left;z-index:31;cursor:default}
+.locmenu-h{margin:4px 8px 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:700}
+.locitem{display:grid;gap:1px;padding:10px 12px;border-radius:10px}
+.locitem:hover{background:var(--mint)}
+.locname{color:var(--ink);font-weight:700;font-size:16px;text-decoration:none}
+.locname:hover,.locname:focus-visible{color:var(--green);text-decoration:underline}
+.locdd .locmenu .locaddr{font-size:14px;color:#4A5565;display:block}.locdd .locmenu span{color:#4A5565}.locdd .locmenu .locph{color:var(--green)}.locdd .locmenu .locname{color:var(--ink)}.locdd .locmenu .locname:hover{color:var(--green)}
+.locph{font-size:15px;font-weight:600;color:var(--green);text-decoration:none}
+@media (max-width:640px){.locdd[open]{grid-column:1/-1}.locmenu{position:static;transform:none;width:auto;margin-top:12px}}
 .ok{background:var(--mint);border-radius:8px;padding:10px 12px;font-size:15px}
 .serp{border:1px dashed var(--line);border-radius:12px;padding:16px 18px;max-width:640px;margin:0 auto;background:#fff}
 .serp .lab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:6px}
@@ -179,3 +198,5 @@ footer a{color:#fff;text-decoration:none}footer .mapico{width:15px;height:15px;s
 footer{background:var(--navy);color:#cbd5e1}
 footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-block:40px;font-size:15px}
 footer b{color:#fff;display:block;margin-bottom:6px;font-size:16px}
+
+@media (max-width:760px){.hero{background-image:linear-gradient(rgba(10,14,12,.62),rgba(10,14,12,.72)),url(/assets/hero-m.webp)}.a11y-hc .hero{background-image:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.86)),url(/assets/hero-m.webp)}}
