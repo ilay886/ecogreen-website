@@ -92,7 +92,7 @@ a.xt{text-decoration:none;color:inherit}
 @media (prefers-reduced-motion:reduce){.post{transition:none}.post:hover{transform:none}}
 .article{max-width:760px;padding-block:48px}
 .article img{width:100%;border-radius:12px;margin-bottom:28px;height:auto}
-.article p{margin:0 0 1.1em}.article p a,.article li a{color:var(--green);font-weight:600}
+.article p{margin:0 0 1.1em}.article p a,.article li a{color:var(--green);font-weight:600}.article .res{list-style:none;padding:0;margin:0 0 8px;display:grid;gap:10px}.article .res li{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;display:grid;gap:2px}.article .res li span{color:var(--muted);font-size:15px}
 .article ul,.article ol{margin:0 0 1.2em;padding-left:1.4em}
 .article li{margin-bottom:.4em}
 .cta-box{display:grid;gap:8px;justify-items:start;background:var(--mint);border-radius:12px;padding:22px 24px;margin-top:28px}
@@ -220,7 +220,7 @@ footer b{color:#fff;display:block;margin-bottom:6px;font-size:16px}
 <div id="app"></div>
 
 <footer><div class="wrap">
-  <div><b>EcoGreen Roofing And Exteriors</b>Roofing, siding, gutters, windows and doors. Licensed and insured, with a team that brings 25+ years of experience.<br>PA HIC #PA209178 · NJ HIC #13VH14032800<br><a href="#roof-replacement">Roof Replacement</a> · <a href="#roof-repair">Roof Repair</a><br><a href="#faq">FAQ</a> · <a href="#privacy-policy">Privacy Policy</a></div>
+  <div><b>EcoGreen Roofing And Exteriors</b>Roofing, siding, gutters, windows and doors. Licensed and insured, with a team that brings 25+ years of experience.<br>PA HIC #PA209178 · NJ HIC #13VH14032800<br><a href="#roof-replacement">Roof Replacement</a> · <a href="#roof-repair">Roof Repair</a><br><a href="#faq">FAQ</a> · <a href="#homeowner-resources">Homeowner Resources</a> · <a href="#privacy-policy">Privacy Policy</a></div>
   <div><b><a href="https://share.google/LbuDeIrgAlV0cVMr5" target="_blank" rel="noopener" title="Open Bala Cynwyd, PA in Google Maps">Bala Cynwyd, PA<svg class="mapico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span class="vh"> (opens Google Maps)</span></a></b>45 E City Ave, Bala Cynwyd, PA 19004<br><a href="tel:+14849928649">(484) 992-8649</a><br>Main Line, Chester and Delaware counties, New Castle County, DE</div>
   <div><b><a href="https://share.google/YaNepPNGhQarDPV4p" target="_blank" rel="noopener" title="Open Doylestown, PA in Google Maps">Doylestown, PA<svg class="mapico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span class="vh"> (opens Google Maps)</span></a></b>196 W Ashland St, Doylestown, PA 18901<br><a href="tel:+12155986455">(215) 598-6455</a><br>Bucks County</div>
   <div><b><a href="https://share.google/C9xBsYibKet9si1y8" target="_blank" rel="noopener" title="Open Huntingdon Valley, PA in Google Maps">Huntingdon Valley, PA<svg class="mapico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span class="vh"> (opens Google Maps)</span></a></b><a href="tel:+12673774597">(267) 377-4597</a><br>Montgomery County and South Jersey</div>
@@ -405,6 +405,32 @@ function subPage(k){const p=SUBP[k];document.title=`${p.t} · EcoGreen`;
  `<section><div class="wrap faq" style="padding-block:64px"><div class="center"><h2>${p.t} Questions, Answered</h2></div>${p.faqs.map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join('')}<p style="text-align:center;margin-top:18px"><a href="#faq" style="color:var(--green);font-weight:600">See all questions →</a></p></div></section>`+
  `<section class="band"><div class="wrap"><div class="center"><h2>Related Services</h2></div><div class="xw three">${p.rel.map(([h,i,a,b])=>`<a class="xt rel" href="#${h}"><span class="ico">${svg(i)}</span><div><b>${a}</b><small>${b}</small><span class="rd">Learn more →</span></div></a>`).join('')}</div></div></section>`+
  `<section class="band" style="background:var(--white)"><div class="wrap"><div class="center"><h2>${p.t} Near You</h2><p>Pick your county to see your town.</p></div><div class="counties">${D.map(c=>`<a href="#${c.s}"><b>${c.n}, ${c.st}</b><span>${(n=>n?`${n} town${n>1?'s':''}`:'County-wide service')(c.t.filter(t=>byTown[t.s]).length)}</span></a>`).join('')}</div></div></section>`+quote('(888) 494-1248','local');}
+function resourcesPage(){document.title='Homeowner Resources · EcoGreen';
+ const L=(u,t)=>`<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
+ const G=[
+ ['Check a contractor’s license','Before you hire anyone for roofing or exterior work, look up their registration with the state. It takes two minutes.',[
+  [L('https://hic.attorneygeneral.gov','Pennsylvania home improvement contractor search'),'Look up a contractor’s PA HIC registration with the Pennsylvania Attorney General.'],
+  [L('https://www.attorneygeneral.gov/home-improvement-contractor-registration/','Pennsylvania HIC registration and your rights'),'What registration means and what Pennsylvania’s home improvement law requires.'],
+  [L('https://www.phila.gov/services/permits-violations-licenses/find-a-licensed-contractor-and-contractor-information/','Philadelphia: find a licensed contractor'),'The City of Philadelphia’s contractor license and permit lookup for work inside the city.'],
+  [L('https://www.njconsumeraffairs.gov/','New Jersey Division of Consumer Affairs'),'Where New Jersey home improvement contractors register, and where to verify them or file a complaint.'],
+  [L('https://revenue.delaware.gov/business-license-search/','Delaware business license search'),'Look up a business license with the Delaware Division of Revenue.']]],
+ ['Storms and weather','Know what’s coming, so you can get ready before a storm hits.',[
+  [L('https://www.weather.gov/phi/','National Weather Service, Philadelphia/Mt. Holly'),'Official forecasts, warnings and storm alerts for southeastern PA, South Jersey and Delaware.']]],
+ ['Insurance help','If you have questions about a claim or a problem with your insurance company, your state insurance department can help.',[
+  [L('https://www.pa.gov/agencies/insurance/consumer-help-center','Pennsylvania Insurance Department consumer help'),'Questions and complaints about your homeowners insurance in Pennsylvania.'],
+  [L('https://www.nj.gov/dobi/','New Jersey Department of Banking and Insurance'),'Consumer help for homeowners insurance in New Jersey.'],
+  [L('https://insurance.delaware.gov/','Delaware Department of Insurance'),'Consumer services for homeowners insurance in Delaware.']]],
+ ['Our guides','Plain-English answers from our crews.',[
+  ['<a href="#blog-how-to-choose-a-roofing-contractor-pennsylvania">How to choose a roofing contractor in Pennsylvania</a>','License, insurance, contract and the questions to ask.'],
+  ['<a href="#blog-how-to-choose-a-roofing-contractor-new-jersey">How to choose a roofing contractor in South Jersey</a>','What New Jersey homeowners should check before hiring.'],
+  ['<a href="#blog-roof-storm-damage-what-to-do">Roof storm damage: the first 48 hours</a>','Safety, tarping, photos and your insurance claim.'],
+  ['<a href="#blog-ice-dams-causes-and-prevention">Ice dams: causes and prevention</a>','Why ice builds up at the roof edge and how to stop it.'],
+  ['<a href="#faq">Roofing and exterior FAQ</a>','Answers to the questions homeowners ask us most.']]]];
+ const steps=['Make sure everyone is safe. Stay away from downed power lines and keep out of rooms with ceiling damage.','Stay off the roof. Look from the ground and from inside the attic.','Stop the water: move belongings, catch drips, and have the roof tarped if it’s leaking.','Take photos and video of the roof from every side, debris in the yard, dents on gutters and vents, and any damage inside.','Write down the date and time of the storm, and keep receipts for tarps, repairs or a hotel.','Get a professional roof inspection with photos, so you know the full damage before you call your insurer.','Report the damage to your insurance company promptly. Many policies have time limits.','Be careful with door-to-door crews. Check the contractor’s license and insurance, get everything in writing, and never pay in full up front.'];
+ return `<section class="hero"><div class="wrap" style="padding-block:56px 48px"><div class="crumbs"><a href="#home">Home</a><span class="sep" aria-hidden="true">›</span>Homeowner Resources</div><h1>Homeowner <span class="g">Resources</span></h1><p class="sub">Official license lookups, storm alerts, insurance help and a storm damage checklist for homeowners in Pennsylvania, New Jersey and Delaware.</p></div></section>`+
+ `<section><div class="wrap article">${G.map(([h,intro,items])=>`<h2 style="font-size:clamp(22px,2.6vw,28px);margin:32px 0 10px">${h}</h2><p>${intro}</p><ul class="res">${items.map(([a,d])=>`<li>${a}<span>${d}</span></li>`).join('')}</ul>`).join('')}`+
+ `<h2 id="storm-checklist" style="font-size:clamp(22px,2.6vw,28px);margin:40px 0 10px">Storm damage checklist</h2><p>Use this list in the first day or two after wind, hail or a fallen tree damages your home.</p><ol class="steps">${steps.map((t,i)=>`<li><b>Step ${i+1}</b><span>${t}</span></li>`).join('')}</ol>`+
+ `<div class="cta-box"><b>Need a roof checked after a storm?</b><span>We inspect, document the damage with photos, tarp leaks and can meet your adjuster. Call <a href="tel:+18884941248">(888) 494-1248</a>.</span><a class="btn" href="#quote" data-scroll="quote">Get a Free Estimate →</a></div><p style="font-size:14px;color:var(--muted);margin-top:24px">We link to these official sites to help homeowners. EcoGreen Roofing And Exteriors isn’t connected to these agencies, and their rules and pages can change, so check the source for the latest details.</p></div></section>`+quote('(888) 494-1248','local');}
 function faqPage(){document.title='Roofing & Exterior FAQ · EcoGreen';
  const G=[
  ['Estimates &amp; Pricing',[
@@ -461,10 +487,10 @@ function post(p){document.title=`${p.t} · EcoGreen`;const more=BLOG.filter(x=>x
 function render(){
   const h=decodeURIComponent(location.hash.slice(1));
   const LOCS=['bala-cynwyd-pa','doylestown-borough-pa','huntingdon-valley-pa','philadelphia-pa','sewell-nj'];
-  document.getElementById('mainOffice').hidden=!((byTown[h]&&!LOCS.includes(h))||(!byTown[h]&&!byCounty[h]&&!h.startsWith('svc-')&&h!=='about-us'&&h!=='privacy-policy'&&h!=='faq'&&!SUBP[h]&&!h.startsWith('blog')));
+  document.getElementById('mainOffice').hidden=!((byTown[h]&&!LOCS.includes(h))||(!byTown[h]&&!byCounty[h]&&!h.startsWith('svc-')&&h!=='about-us'&&h!=='privacy-policy'&&h!=='faq'&&h!=='homeowner-resources'&&!SUBP[h]&&!h.startsWith('blog')));
   window.curAddr=({'bala-cynwyd-pa':'45 E City Ave, Bala Cynwyd, PA 19004','doylestown-borough-pa':'196 W Ashland St, Doylestown, PA 18901','philadelphia-pa':'4030 N Broad St, Philadelphia, PA 19140','sewell-nj':'101 Raymond Dr, Sewell, NJ 08080'})[h]||'';
   window.curST=byTown[h]?byTown[h].c.st:byCounty[h]?byCounty[h].st:'';
-  app.innerHTML=h==='privacy-policy'?privacy():h==='faq'?faqPage():SUBP[h]?subPage(h):byTown[h]?town(byTown[h]):byCounty[h]?county(byCounty[h]):h==='about-us'?about():h==='blog'?blogList():(h.startsWith('blog-')&&BLOG.find(x=>x.s===h.slice(5)))?post(BLOG.find(x=>x.s===h.slice(5))):h==='svc-tool'?exterior():(h.startsWith('svc-')&&SVCPAGE[h.slice(4)])?service(h.slice(4)):home();
+  app.innerHTML=h==='privacy-policy'?privacy():h==='faq'?faqPage():h==='homeowner-resources'?resourcesPage():SUBP[h]?subPage(h):byTown[h]?town(byTown[h]):byCounty[h]?county(byCounty[h]):h==='about-us'?about():h==='blog'?blogList():(h.startsWith('blog-')&&BLOG.find(x=>x.s===h.slice(5)))?post(BLOG.find(x=>x.s===h.slice(5))):h==='svc-tool'?exterior():(h.startsWith('svc-')&&SVCPAGE[h.slice(4)])?service(h.slice(4)):home();
   if(h!=='quote')window.scrollTo(0,0);
   const f=document.getElementById('est'); if(f) f.addEventListener('submit',e=>{e.preventDefault();const o=document.getElementById('ok');o.textContent='This preview can’t send. On the live site, requests go straight to info@ecogreenextrior.com.';o.hidden=false;});
 }
