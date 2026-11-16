@@ -48,7 +48,7 @@ const PG={
  'svc-roof':['Roofing Contractor in PA, NJ & DE | EcoGreen Roofing And Exteriors','Roof replacement, roof repair, storm damage and insurance claim help across PA, NJ and DE. Licensed, insured, 25+ years experience. Free estimate.','Roofing contractor'],
  'svc-siding':['Siding Contractor in PA, NJ & DE | EcoGreen Roofing And Exteriors','Vinyl, insulated vinyl and fiber cement siding installation and repair, plus soffit, fascia and trim. Licensed, insured, 25+ years experience. Free estimate.','Siding contractor'],
  'svc-win':['Window Installation & Replacement | EcoGreen Roofing And Exteriors','Energy-efficient replacement windows: double-hung, casement, sliding, bay and bow. Lead-safe installation in PA, NJ and DE. Licensed, insured. Free estimate.','Window installation'],
- 'svc-gutter':['Gutter Installation & Repair | EcoGreen Roofing And Exteriors','Seamless 5" and 6" gutters, downspouts, leaf guards and gutter repair across PA, NJ and DE. Protect your roof, fascia and foundation. Free estimate.','Gutter installation'],
+ 'svc-gutter':['Gutter Installation Philadelphia, PA & NJ | EcoGreen','Seamless 5" and 6" gutters, downspouts, leaf guards and gutter repair in Philadelphia, its PA suburbs, South Jersey and Delaware. Free estimate.','Gutter installation'],
  'svc-door':['Entry, Patio & Garage Doors | EcoGreen Roofing And Exteriors','Fiberglass and steel entry doors, storm doors, patio doors and garage doors installed and sealed tight. Serving PA, NJ and DE. Free estimate.','Door installation'],
  'svc-tool':['Exterior Renovations & Improvements | EcoGreen Roofing And Exteriors','Exterior renovations and improvements from one licensed and insured team: hardscaping, decks, masonry, stucco, drainage and more in PA, NJ and DE.','Exterior renovation']};
 const KEEPT=meta.D.flatMap(c=>c.t.map(t=>t.s));
@@ -71,11 +71,11 @@ for(const h of routes){
  body=body.replace(/href="#([a-z0-9-]+)"/g,(m,x)=>x==='quote'?m:`href="${urlFor(x)}"`);
  const u=urlFor(h);const key=(alias[h]||h);const s=seo[key];
  let title=s?s.seo_title:r.title.replace(' · EcoGreen',' | EcoGreen Roofing And Exteriors');
- if(h==='home')title='Roofing & Exterior Contractor in PA, NJ & DE | EcoGreen Roofing And Exteriors';
- let desc=s?s.meta_description:(h==='home'?'Roofing, siding, gutters, windows and doors from local teams in Bala Cynwyd, Doylestown and Huntingdon Valley. Licensed, insured, 25+ years experience.':(r.h1+'. EcoGreen Roofing And Exteriors, licensed and insured roofing and exterior contractor with 25+ years of experience. Free estimates.').slice(0,160));
+ if(h==='home')title='Roofing Contractor in Philadelphia, PA, NJ & DE | EcoGreen';
+ let desc=s?s.meta_description:(h==='home'?'Roof replacement, roof repair, siding, gutters and windows from 5 local offices: Philadelphia, Bala Cynwyd, Doylestown, Huntingdon Valley and Sewell, NJ.':(r.h1+'. EcoGreen Roofing And Exteriors, licensed and insured roofing and exterior contractor with 25+ years of experience. Free estimates.').slice(0,160));
  if(h.startsWith('blog-')){const bp=meta.B.find(x=>'blog-'+x.s===h);desc=bp.x;}
  if(PG[h]){title=PG[h][0];desc=PG[h][1];}
- if(h==='home')title='Roofing & Exterior Contractor PA, NJ & DE | EcoGreen';
+ if(h==='home')title='Roofing Contractor in Philadelphia, PA, NJ & DE | EcoGreen';
  if(title.length>60)title=title.replace(' | EcoGreen Roofing And Exteriors',' | EcoGreen');if(title.length>60)title=title.replace(' | EcoGreen','');
  const g=[ORG,{"@type":"WebSite","@id":BASE+'/#website',"url":BASE+'/',"name":"EcoGreen Roofing And Exteriors","publisher":{"@id":BASE+'/#org'}}];
  g.push({"@type":"WebPage","@id":BASE+u+'#webpage',"url":BASE+u,"name":title,"description":desc,"dateModified":SRC_DATE,"isPartOf":{"@id":BASE+'/#website'},"publisher":{"@id":BASE+'/#org'},"about":{"@id":BASE+'/#org'}});
