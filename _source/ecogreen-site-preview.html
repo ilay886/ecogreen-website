@@ -202,6 +202,39 @@ footer a{color:#fff;text-decoration:none}footer .mapico{width:15px;height:15px;s
 footer{background:var(--navy);color:#cbd5e1}
 footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;padding-block:40px;font-size:15px}
 footer b{color:#fff;display:block;margin-bottom:6px;font-size:16px}
+.trust{margin:-4px 0 0;color:#f3f4f6;font-size:14px;font-weight:500;text-align:center}
+.trust .tstar{color:#FBBF24;letter-spacing:1px;margin-right:4px}
+.menu-btn,.mbar{display:none}
+@media (max-width:760px){
+header.site .wrap{flex-wrap:nowrap;justify-content:space-between}
+header.site img{height:52px}
+.menu-btn{display:grid;place-items:center;width:46px;height:46px;margin-left:auto;padding:0;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:22px;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s,background .2s}
+.menu-btn span{position:relative}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-7px}
+.menu-btn span::after{top:7px}
+header.site.open .menu-btn span{background:transparent}
+header.site.open .menu-btn span::before{transform:translateY(7px) rotate(45deg)}
+header.site.open .menu-btn span::after{transform:translateY(-7px) rotate(-45deg)}
+nav.top{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:4px 16px 16px;background:#fff;border-top:1px solid var(--line);box-shadow:0 12px 24px rgba(16,24,40,.12)}
+header.site.open nav.top{display:flex}
+nav.top a{font-size:17px;padding:14px 4px;border-bottom:1px solid var(--line)}
+nav.top a.btn{justify-content:center;margin-top:14px;padding:14px;border-bottom:0}
+.mbar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;box-shadow:0 -4px 18px rgba(16,24,40,.12);transition:transform .2s}
+.mbar.hide{transform:translateY(110%)}
+.mbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none}
+.mbar-call{background:#fff;color:var(--green);border:1.5px solid var(--green)}
+.mbar-est{background:var(--grad);color:#fff}
+.mbar svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+body.has-mbar{padding-bottom:72px}
+body.has-mbar .toast{bottom:88px}
+.a11y-btn{top:auto;bottom:84px;left:10px;transform:none;width:44px;height:44px}
+.a11y-panel{top:auto;bottom:84px;left:62px;transform:none}
+.crumbs a{display:inline-block;padding:8px 0}
+}
+@media (prefers-reduced-motion:reduce){.mbar,.menu-btn span,.menu-btn span::before,.menu-btn span::after{transition:none}}
+@media print{.mbar,.menu-btn{display:none!important}}
 </style>
 
 <div class="preview"><div class="wrap">
@@ -212,7 +245,7 @@ footer b{color:#fff;display:block;margin-bottom:6px;font-size:16px}
 
 <header class="site"><div class="wrap">
   <a href="#home" aria-label="EcoGreen Roofing And Exteriors home"><img id="logo" width="105" height="46" alt="EcoGreen Roofing And Exteriors"></a>
-  <nav class="top" aria-label="Main">
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu"><span></span></button><nav class="top" id="mainnav" aria-label="Main">
     <a href="#home">Home</a><a href="#about-us">About Us</a><a href="#home" data-scroll="services">Services</a><a href="#home" data-scroll="areas">Service Areas</a><a href="#faq">FAQ</a>
     <a class="btn sm" href="#quote" data-scroll="quote">Get a Free Quote</a>
   </nav>
@@ -332,7 +365,7 @@ function quote(ph,loc){return `<section class="quote" id="quote"><div class="wra
 function hero(h1,town,sub,ph,stats,crumbs){
   const i=town?h1.indexOf(town):-1;
   const title=i>=0?esc(h1.slice(0,i))+`<span class="g">${esc(town)}</span>`+esc(h1.slice(i+town.length)):esc(h1);
-  return `<section class="hero"><div class="wrap">${crumbs}<h1>${title}</h1><p class="sub">${sub}</p><div class="cta"><a class="btn" href="#quote" data-scroll="quote">Get Free Estimate</a><a class="btn ghost" href="${tel(ph)}">${svg('phone')} Call ${ph}</a></div><div class="stats">${stats}</div></div></section>`;}
+  return `<section class="hero"><div class="wrap">${crumbs}<h1>${title}</h1><p class="sub">${sub}</p><div class="cta"><a class="btn" href="#quote" data-scroll="quote">Get Free Estimate</a><a class="btn ghost" href="${tel(ph)}">${svg('phone')} Call ${ph}</a></div><p class="trust"><span class="tstar" aria-hidden="true">★★★★★</span>5.0 on Google · Free written estimates</p><div class="stats">${stats}</div></div></section>`;}
 const tel=ph=>'tel:+1'+ph.replace(/\D/g,'');
 const LOCLIST=[['bala-cynwyd-pa','Bala Cynwyd, PA','45 E City Ave, Bala Cynwyd, PA 19004','(484) 992-8649'],['doylestown-borough-pa','Doylestown, PA','196 W Ashland St, Doylestown, PA 18901','(215) 598-6455'],['huntingdon-valley-pa','Huntingdon Valley, PA','Service area','(267) 377-4597'],['philadelphia-pa','Philadelphia, PA','4030 N Broad St, Philadelphia, PA 19140','(215) 883-8037'],['sewell-nj','Sewell, NJ','101 Raymond Dr, Sewell, NJ 08080','(856) 242-7123']];
 const locStat=()=>`<details class="stat locdd"><summary aria-label="Choose one of our ${LOCLIST.length} locations">${svg('pin')}<b>${LOCLIST.length}</b><span>Locations <em class="locdd-cue" aria-hidden="true">▾</em></span></summary><div class="locmenu"><p class="locmenu-h">Choose a location</p>${LOCLIST.map(([sl,n,a,ph])=>`<div class="locitem"><a class="locname" href="#${sl}">${n}</a><span class="locaddr">${a}</span><a class="locph" href="${tel(ph)}">${ph}</a></div>`).join('')}</div></details>`;

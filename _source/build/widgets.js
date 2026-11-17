@@ -50,3 +50,21 @@ apply();
 document.addEventListener('click',function(e){document.querySelectorAll('details.locdd[open]').forEach(function(d){if(!d.contains(e.target)||e.target.closest('.locname'))d.open=false;});});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.locdd[open]').forEach(function(d){d.open=false;var s=d.querySelector('summary');if(s)s.focus();});});
 })();
+
+(function(){
+var hdr=document.querySelector('header.site'),mb=hdr&&hdr.querySelector('.menu-btn');
+if(mb){
+ var set=function(o){hdr.classList.toggle('open',o);mb.setAttribute('aria-expanded',o?'true':'false');mb.setAttribute('aria-label',o?'Close menu':'Open menu');};
+ mb.addEventListener('click',function(){set(!hdr.classList.contains('open'));});
+ hdr.querySelector('nav').addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+ document.addEventListener('click',function(e){if(!hdr.contains(e.target))set(false);});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&hdr.classList.contains('open')){set(false);mb.focus();}});
+}
+var t=document.querySelector('.hero a[href^="tel:"]'),href=t?t.getAttribute('href'):'tel:+18884941248';
+var num=t?(t.textContent.match(/\(\d{3}\) \d{3}-\d{4}/)||['(888) 494-1248'])[0]:'(888) 494-1248';
+var q=document.getElementById('quote');
+var bar=document.createElement('div');bar.className='mbar';
+bar.innerHTML='<a class="mbar-call" href="'+href+'" aria-label="Call '+num+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Now</a><a class="mbar-est" href="'+(q?'#quote':'/#quote')+'"'+(q?' data-scroll="quote"':'')+'>Free Estimate</a>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+if(q&&'IntersectionObserver' in window){new IntersectionObserver(function(es){bar.classList.toggle('hide',es[0].isIntersecting);},{threshold:0.1}).observe(q);}
+})();
