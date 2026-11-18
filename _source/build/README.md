@@ -29,7 +29,7 @@ From now on, any change you commit in GitHub Desktop goes live automatically in 
 and every old version stays saved in GitHub, so you can roll back anytime.
 
 ## After it's live
-- Call (484) 992-8649, (215) 598-6455 and (267) 377-4597 to make sure they ring through.
+- Call (484) 992-8649, (215) 598-6455 and (267) 952-3200 to make sure they ring through.
 - Send one test request from the estimate form, then click the **Activate Form** email that
   FormSubmit sends to info@ecogreenextrior.com. Leads are not delivered until you do.
 - Google Search Console: submit `https://ecogreenextrior.com/sitemap.xml`.
